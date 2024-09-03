@@ -1,0 +1,178 @@
+body {
+  font-family: cursive;
+  /* background-color: #f4f4f4; */
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background: url(mohammad-mardani-T1uKw1pd0M4-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div svg {
+  position: relative;
+  top: 4px;
+  fill: #deb887;
+  height: 30px;
+  width: 30px;
+  margin-left: 0.5rem;
+  transform: rotate(20deg);
+  align-self: auto;
+}
+
+h1 {
+  color: burlywood;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5rem;
+  grid-row-gap: 0.5rem;
+  align-items: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: wheat;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='submit'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white;
+}
+
+button {
+  font-size: 1.2rem;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  grid-row: 11/12;
+  grid-column: 2 / 3;
+  margin-top: 40px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.back-arrow {
+  height: 30px;
+  width: 30px;
+  position: static;
+  transform: none;
+  fill: none;
+  margin-left: 0;
+  align-self: flex-start;
+}
+
+.back-arrow:hover .hover-stroke {
+  stroke: darkgoldenrod;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: beige;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-item h2 {
+  color: wheat;
+}
+
+.graph img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 900px) {
+  ul {
+    max-width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5rem;
+    grid-row-gap: 0.5rem;
+    align-items: center;
+  }
+
+  .results {
+    max-width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5rem;
+    grid-row-gap: 0.5rem;
+    align-items: center;
+  }
+
+  .result-item {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  h1 {
+    font-size: x-large;
+  }
+
+  div {
+    flex-direction: column-reverse;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  p {
+    width: 100%;
+  }
+
+  button {
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  ul li {
+    font-size: 0.8rem;
+  }
+}

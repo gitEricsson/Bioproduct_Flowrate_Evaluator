@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Calculation Results</title>
+  </head>
+  <body>
+    <a href="{% url 'Flowrate_Calculator' %}" class="back-arrow">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <g id="SVGRepo_iconCarrier">
+          <path
+            class="hover-stroke"
+            d="M12.9998 8L6 14L12.9998 21"
+            stroke="#deb887"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            class="hover-stroke"
+            d="M6 14H28.9938C35.8768 14 41.7221 19.6204 41.9904 26.5C42.2739 33.7696 36.2671 40 28.9938 40H11.9984"
+            stroke="#deb887"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+      </svg>
+    </a>
+    <h1>Results</h1>
+    <ul>
+      <li>Solid product final mass at outlet (grams): {{results.SHTCout }}</li>
+      <li>
+        Biomass concentration at the outlet (grams/litre): {{ results.XADout }}
+      </li>
+      <li>
+        Substrate concentration at the outlet (grams/litre): {{ results.SADout}}
+      </li>
+      <li>
+        Methane concentration in the biogas (grams/litre): {{ results.ZADCH4 }}
+      </li>
+      <li>
+        CO₂ final concentration at outlet (grams/litre): {{ results.CO2 }}
+      </li>
+      <li>H₂ final concentration at outlet (grams/litre): {{ results.H2 }}</li>
+      <li>
+        NH₃ final concentration at outlet (grams/litre): {{ results.NH3 }}
+      </li>
+      <li>MXADout (grams): {{ results.MXADout }}</li>
+      <li>MSADout (grams): {{ results.MSADout }}</li>
+      <li>MZADCH4 (grams): {{ results.MZADCH4 }}</li>
+      <li>MCO₂ (grams): {{ results.MCO2 }}</li>
+      <li>MH₂ (grams): {{ results.MH2 }}</li>
+      <li>MNH₃ (grams): {{ results.MNH3 }}</li>
+    </ul>
+
+    <h1>Plots</h1>
+
+    <div class="results">
+      <div class="result-item">
+        <h2>SHTC</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.SHTC_plot }}"
+            alt="SHTC vs Time"
+          />
+        </div>
+      </div>
+
+      <div class="result-item">
+        <h2>XAD</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.XAD_plot }}"
+            alt="XAD vs Time"
+          />
+        </div>
+      </div>
+
+      <div class="result-item">
+        <h2>SAD</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.SAD_plot }}"
+            alt="SAD vs Time"
+          />
+        </div>
+      </div>
+
+      <div class="result-item">
+        <h2>ZAD</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.ZAD_plot }}"
+            alt="ZAD vs Time"
+          />
+        </div>
+      </div>
+
+      <div class="result-item">
+        <h2>CO2</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.CO2_plot }}"
+            alt="CO2 vs Time"
+          />
+        </div>
+      </div>
+
+      <div class="result-item">
+        <h2>H2</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.H2_plot }}"
+            alt="H2 vs Time"
+          />
+        </div>
+      </div>
+
+      <div class="result-item">
+        <h2>NH3</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.NH3_plot }}"
+            alt="NH3 vs Time"
+          />
+        </div>
+      </div>
+      <div class="result-item">
+        <h2>MXAD</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.MXAD_plot}}"
+            alt="MXAD vs Time"
+          />
+        </div>
+      </div>
+      <div class="result-item">
+        <h2>MSADout</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.MSADout_plot }}"
+            alt="MSADout vs Time"
+          />
+        </div>
+      </div>
+      <div class="result-item">
+        <h2>MZADCH4</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.MZADCH4_plot }}"
+            alt="MZADCH4 vs Time"
+          />
+        </div>
+      </div>
+      <div class="result-item">
+        <h2>MCO2</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.MCO2_plot }}"
+            alt="MCO2 vs Time"
+          />
+        </div>
+      </div>
+      <div class="result-item">
+        <h2>MH2</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.MH2_plot }}"
+            alt="MH2 vs Time"
+          />
+        </div>
+      </div>
+      <div class="result-item">
+        <h2>MNH3</h2>
+        <div class="graph">
+          <img
+            src="data:image/png;base64,{{ results.MNH3_plot }}"
+            alt="MNH3 vs Time"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
